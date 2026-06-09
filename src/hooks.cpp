@@ -353,7 +353,7 @@ class $modify(GJBaseGameLayer) {
             auto pl = GameManager::sharedState()->getPlayLayer();
             if (!pl) return;
 
-            auto maxLength = static_cast<size_t>(config.get<int>("trail_size", 240));
+            auto maxLength = static_cast<size_t>(config.get<int>("trail_size").value_or(240));
             while (playerTrail1.size() > maxLength)
                 playerTrail1.pop_front();
             while (playerTrail2.size() > maxLength)
